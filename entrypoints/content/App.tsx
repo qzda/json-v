@@ -74,7 +74,12 @@ function Render(props: {
           keys.map((key, index) => {
             return (
               <div key={index}>
-                <span className="key">
+                <span
+                  className="key"
+                  onClick={() => {
+                    copyText(key);
+                  }}
+                >
                   {`${getPreBlank(deep + 2)}"${key}"`}
                 </span>
                 <span>{": "}</span>
@@ -97,7 +102,12 @@ function Render(props: {
 
     return (
       <>
-        <span className={prototype}>
+        <span
+          className={prototype}
+          onClick={() => {
+            copyText(data);
+          }}
+        >
           {isUrl ? (
             <span>
               {getPreBlank(deep)}
@@ -117,27 +127,16 @@ function Render(props: {
     );
   }
 
-  if (prototype === "Null") {
-    return (
-      <>
-        <span className={prototype}>{getPreBlank(deep)}null</span>
-        {endSymbol}
-      </>
-    );
-  }
-
-  if (prototype === "Boolean") {
-    return (
-      <>
-        <span className={prototype}>{data ? "true" : "false"}</span>
-        {endSymbol}
-      </>
-    );
-  }
-
   return (
     <>
-      <span className={prototype}>{data}</span>
+      <span
+        className={prototype}
+        onClick={() => {
+          copyText(String(data));
+        }}
+      >
+        {String(data)}
+      </span>
       {endSymbol}
     </>
   );
@@ -154,7 +153,7 @@ function Tools(props: {
       <a
         className="btn"
         onClick={() => {
-          navigator.clipboard.writeText(JSON.stringify(data, null, 2));
+          copyText(JSON.stringify(data, null, 2));
         }}
       >
         copy
@@ -186,4 +185,8 @@ function isNormalType(data: any) {
   if (!prototype) return false;
 
   return ["String", "Null", "Boolean", "Number"].includes(prototype);
+}
+
+function copyText(text: string) {
+  navigator.clipboard.writeText(text);
 }
