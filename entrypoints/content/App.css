@@ -1,27 +1,40 @@
+:root {
+  color-scheme: light dark;
+
+  --color-bracket-1: rgba(23, 159, 255, 1);
+  --color-bracket-2: rgba(218, 112, 214, 1);
+  --color-btn: rgba(0, 0, 255, 0.75);
+  --color-bg-btn: rgba(128, 128, 128, 0.75);
+  --color-key: rebeccapurple;
+  --color-number: rgba(0, 0, 255, 0.75);
+  --color-string: green;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-btn: rgba(255, 255, 255, 0.75);
+    --color-number: rgba(181, 206, 168, 1);
+  }
+}
+
 body {
   margin: 0;
 }
 
 #app {
   padding: 1rem 2rem;
-  font-family: monospace;
+  font-family: "Lucida Console", Courier, monospace;
   line-height: 1.5;
+  white-space: nowrap;
 }
-
-span.String {
-  color: green;
+.bracket-1 {
+  color: var(--color-bracket-1);
 }
-
-span.Number {
-  color: blue;
+.bracket-2 {
+  color: var(--color-bracket-2);
 }
-
-span.Boolean {
-  color: blue;
-}
-
-span.Null {
-  color: blue;
+.key {
+  color: var(--color-key);
 }
 
 .toolbar {
@@ -32,12 +45,27 @@ span.Null {
 .btn {
   cursor: pointer;
   user-select: none;
-  background-color: #80808080;
-  padding: 0 0.5rem;
+  background-color: var(--color-bg-btn);
+  padding: 0 0.25rem;
   border-radius: 0.25rem;
-  color: blue;
+  color: var(--color-btn);
+  opacity: 0.75;
   font-size: 0.75rem;
 }
 .btn:hover {
-  opacity: 0.75;
+  opacity: 1;
+}
+
+.String {
+  color: var(--color-string);
+}
+
+.String a {
+  color: revert;
+}
+
+.Number,
+.Boolean,
+.Null {
+  color: var(--color-number);
 }

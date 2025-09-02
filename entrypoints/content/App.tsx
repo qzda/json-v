@@ -28,28 +28,31 @@ function Render(props: {
 
   if (prototype === "Array") {
     return (
-      <div>
-        <div className="bracket">
-          <span>{`${getPreBlank(deep)}[${getPreBlank(1)}`}</span>
+      <>
+        <span>
+          <span className="bracket-1">{`${getPreBlank(
+            showFisrtPreBlank ? deep : 0
+          )}[${getPreBlank(1)}`}</span>
           <Tools
             data={data}
             hidden={hidden}
             setHidden={setHidden}
           />
-        </div>
+        </span>
         {!hidden &&
           (data as any[]).map((item, index) => {
             return (
-              <Render
-                deep={deep + 2}
-                data={item}
-                key={index}
-                hasMore={index < (data as any[]).length - 1}
-              />
+              <div key={index}>
+                <Render
+                  deep={deep + 2}
+                  data={item}
+                  hasMore={index < (data as any[]).length - 1}
+                />
+              </div>
             );
           })}
-        {`${getPreBlank(deep)}]${endSymbol}`}
-      </div>
+        <div className="bracket-1">{`${getPreBlank(deep)}]${endSymbol}`}</div>
+      </>
     );
   }
 
@@ -57,8 +60,10 @@ function Render(props: {
     const keys = Object.keys(data);
     return (
       <>
-        <span className="bracket">
-          {`${getPreBlank(showFisrtPreBlank ? deep : 0)}{${getPreBlank(1)}`}
+        <span>
+          <span className="bracket-2">{`${getPreBlank(
+            showFisrtPreBlank ? deep : 0
+          )}{${getPreBlank(1)}`}</span>
           <Tools
             data={data}
             hidden={hidden}
@@ -69,24 +74,20 @@ function Render(props: {
           keys.map((key, index) => {
             return (
               <div key={index}>
-                <span
-                  style={{
-                    color: "rebeccapurple",
-                  }}
-                >
+                <span className="key">
                   {`${getPreBlank(deep + 2)}"${key}"`}
                 </span>
                 <span>{": "}</span>
                 <Render
                   data={data[key]}
-                  deep={deep + 2}
+                  deep={isNormalType(data[key]) ? 0 : deep + 2}
                   showFisrtPreBlank={false}
                   hasMore={index < keys.length - 1}
                 />
               </div>
             );
           })}
-        <div>{`${getPreBlank(deep)}}${endSymbol}`}</div>
+        <div className="bracket-2">{`${getPreBlank(deep)}}${endSymbol}`}</div>
       </>
     );
   }
@@ -97,18 +98,19 @@ function Render(props: {
     return (
       <>
         <span className={prototype}>
-          "
           {isUrl ? (
-            <a
-              href={data}
-              target="_blank"
-            >
-              {data}
-            </a>
+            <span>
+              {getPreBlank(deep)}
+              <a
+                href={data}
+                target="_blank"
+              >
+                "{data}"
+              </a>
+            </span>
           ) : (
-            data
+            `${getPreBlank(deep)}"${data}"`
           )}
-          "
         </span>
         {endSymbol}
       </>
@@ -118,7 +120,7 @@ function Render(props: {
   if (prototype === "Null") {
     return (
       <>
-        <span className={prototype}>null</span>
+        <span className={prototype}>{getPreBlank(deep)}null</span>
         {endSymbol}
       </>
     );
@@ -172,4 +174,16 @@ function Tools(props: {
 function getPreBlank(deep: number) {
   if (deep < 1) return "";
   return new Array(deep).fill("\u00A0").join("");
+}
+
+function isNormalType(data: any) {
+  const prototype = Object.prototype.toString
+    .call(data)
+    .split(" ")
+    .at(-1)
+    ?.slice(0, -1);
+
+  if (!prototype) return false;
+
+  return ["String", "Null", "Boolean", "Number"].includes(prototype);
 }
