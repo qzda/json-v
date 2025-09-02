@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+}
+
+#app {
+  padding: 1rem 2rem;
+  font-family: monospace;
+  line-height: 1.5;
+}
+
+span.String {
+  color: green;
+}
+
+span.Number {
+  color: blue;
+}
+
+span.Boolean {
+  color: blue;
+}
+
+span.Null {
+  color: blue;
+}
+
+.toolbar {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  cursor: pointer;
+  user-select: none;
+  background-color: #80808080;
+  padding: 0 0.5rem;
+  border-radius: 0.25rem;
+  color: blue;
+  font-size: 0.75rem;
+}
+.btn:hover {
+  opacity: 0.75;
+}
