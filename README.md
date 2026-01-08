@@ -19,7 +19,7 @@ Supports node collapse/expand, copy to clipboard, and improves JSON readability.
 
 ### Chrome / Edge
 
-1. Download the `.crx` package([Github](https://github.com/qzda/json-v/releases)).
+1. Download the `json-v-x.x.x-chrome.zip` package and extract it. ([Github](https://github.com/qzda/json-v/releases)).
 2. Open `chrome://extensions/` in the browser.
 3. Enable **Developer mode** (toggle in the top-right corner).
 4. Click **Load unpacked** and select the project folder.
