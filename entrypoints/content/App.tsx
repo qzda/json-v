@@ -75,7 +75,7 @@ function Render(props: {
             return (
               <div key={index}>
                 <span
-                  className="key"
+                  className="key cursor-pointer"
                   onClick={() => {
                     copyText(key);
                   }}

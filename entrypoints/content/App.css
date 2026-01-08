@@ -12,13 +12,37 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-btn: rgba(255, 255, 255, 0.75);
-    --color-number: rgba(181, 206, 168, 1);
+    /* 基础文字 & 背景（如果你后面要加 bg） */
+    --color-text: rgba(220, 220, 220, 0.9);
+
+    /* 括号：偏冷但不刺眼 */
+    --color-bracket-1: rgba(130, 170, 255, 0.9);
+    --color-bracket-2: rgba(200, 140, 210, 0.9);
+
+    /* key：柔和紫色 */
+    --color-key: rgb(197, 134, 192);
+
+    /* 字符串：橄榄绿（VS Code 风格） */
+    --color-string: rgb(156, 220, 254);
+
+    /* 数字 / boolean / null */
+    --color-number: rgb(181, 206, 168);
+
+    /* 按钮 */
+    --color-btn: rgba(220, 220, 220, 0.85);
+    --color-bg-btn: rgba(255, 255, 255, 0.08);
   }
 }
 
 body {
   margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1e1e1e;
+    color: var(--color-text);
+  }
 }
 
 #app {
@@ -54,6 +78,10 @@ body {
 }
 .btn:hover {
   opacity: 1;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .String {
