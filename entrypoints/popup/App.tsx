@@ -1,11 +1,11 @@
 import "./App.css";
-import { version } from "../../package.json";
+import { displayName, version } from "../../package.json";
 
 export default function () {
   return (
     <div>
       <h2>
-        JSON V{" "}
+        {displayName}{" "}
         <span
           style={{
             fontWeight: "normal",

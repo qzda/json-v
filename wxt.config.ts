@@ -1,4 +1,5 @@
 import { defineConfig } from "wxt";
+import { displayName, version } from "./package.json";
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
@@ -8,4 +9,8 @@ export default defineConfig({
     startUrls: ["https://jsonplaceholder.typicode.com/users"],
   },
   outDir: "dist",
+  manifest: {
+    name: displayName,
+    version,
+  },
 });
