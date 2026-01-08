@@ -29,3 +29,4 @@ dist/chrome-mv3
 dist/chrome-mv3-dev
 dist/firefox-mv3
 dist/firefox-mv3-dev
+bun.lock
