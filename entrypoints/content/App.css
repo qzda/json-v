@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   color-scheme: light dark;
 
@@ -74,7 +78,9 @@ body {
   border-radius: 0.25rem;
   color: var(--color-btn);
   opacity: 0.75;
-  font-size: 0.75rem;
+  font-size: 1rem;
+  height: 1rem;
+  line-height: 1rem;
 }
 .btn:hover {
   opacity: 1;

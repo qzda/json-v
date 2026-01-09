@@ -74,13 +74,14 @@ function Render(props: {
           keys.map((key, index) => {
             return (
               <div key={index}>
+                <span>{getPreBlank(deep + 2)}</span>
                 <span
                   className="key cursor-pointer"
                   onClick={() => {
                     copyText(key);
                   }}
                 >
-                  {`${getPreBlank(deep + 2)}"${key}"`}
+                  "{key}"
                 </span>
                 <span>{": "}</span>
                 <Render
@@ -108,18 +109,19 @@ function Render(props: {
             copyText(data);
           }}
         >
+          <span>{getPreBlank(deep)}</span>
           {isUrl ? (
             <span>
-              {getPreBlank(deep)}
               <a
                 href={data}
+                className="cursor-pointer"
                 target="_blank"
               >
                 "{data}"
               </a>
             </span>
           ) : (
-            `${getPreBlank(deep)}"${data}"`
+            <span className="cursor-pointer">"{data}"</span>
           )}
         </span>
         {endSymbol}
@@ -135,7 +137,8 @@ function Render(props: {
           copyText(String(data));
         }}
       >
-        {String(data)}
+        {getPreBlank(deep)}
+        <span className="cursor-pointer">{String(data)}</span>
       </span>
       {endSymbol}
     </>
