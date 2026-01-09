@@ -6,6 +6,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JSON V</title>
   <meta name="manifest.type" content="browser_action" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      font-weight: 400;
+
+      color-scheme: light dark;
+      color: #213547;
+      background-color: #ffffff;
+
+
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-text-size-adjust: 100%;
+
+      --bg-update-tip: #fffbe6;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color: rgba(255, 255, 255, 0.87);
+        background-color: #242424;
+
+        --bg-update-tip: #e0c851;
+      }
+    }
+
+    body {
+      margin: 0;
+      padding: 1rem;
+      display: flex;
+      place-items: center;
+      width: 300px;
+    }
+
+    #root {
+      width: 100%;
+      text-align: center;
+
+      position: relative;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a>svg {
+      font-size: 1rem;
+    }
+
+    .update-tip {
+      margin-top: 0.25rem;
+      padding: 0.125rem 0.5rem;
+      background-color: var(--bg-update-tip);
+      border: 1px solid #ffe58f;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .github {
+      position: absolute;
+      right: 0;
+    }
+  </style>
 </head>
 
 <body>
