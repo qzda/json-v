@@ -25,8 +25,5 @@ web-ext.config.ts
 *.sln
 *.sw?
 
-dist/chrome-mv3
-dist/chrome-mv3-dev
-dist/firefox-mv3
-dist/firefox-mv3-dev
+dist
 bun.lock
