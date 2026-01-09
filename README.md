@@ -1,47 +1,41 @@
 # JSON V
 
-A browser extension that makes raw JSON pages more beautiful and interactive.
-Supports node collapse/expand, copy to clipboard, and improves JSON readability.
-
-## 📷 Screenshots
-
-![](/public/screenshots.png)
+A lightweight browser extension that beautifies and enhances raw JSON pages. It turns plain JSON into an interactive, readable tree with folding, dark mode support, and one-click copy.
 
 ## ✨ Features
 
-- 🌳 **Structured View**: Automatically formats JSON into a tree structure for better readability.
-- 📂 **Collapse / Expand**: Toggle any level of nodes to quickly navigate large data.
-- 📋 **One-Click Copy**: Copy node values or objects to clipboard with a single click.
-- 🎨 **Clean UI**: Syntax highlighting and indentation for a better reading experience.
-- ⚡ **Auto-Enabled**: Works automatically when opening JSON files or API responses in the browser.
+- 🌳 **Tree View**: Automatically renders JSON as a structured, readable tree.
+- ⚡ **Auto Apply**: Activates automatically on JSON files and API responses.
+- 📂 **Collapse / Expand**: Fold or expand any node to navigate large JSON easily.
+- 📋 **One-Click Copy**: Copy any node’s value or object instantly.
+- 🌙 **Dark Mode Support**: Automatically adapts to system dark mode for comfortable viewing.
+- 🎨 **Clean UI**: Clear indentation and syntax highlighting for better readability.
+
+## 📷 Screenshots
+
+![](/public/demo.png)
 
 ## 🔧 Installation
 
 ### Chrome / Edge
 
-1. Download the `json-v-x.x.x-chrome.zip` package and extract it. ([Github](https://github.com/qzda/json-v/releases)).
-2. Open `chrome://extensions/` in the browser.
-3. Enable **Developer mode** (toggle in the top-right corner).
-4. Click **Load unpacked** and select the project folder.
+1. Download and extract the `json-v-x.x.x-chrome.zip` package from [GitHub Releases](https://github.com/qzda/json-v/releases).
+2. Open [`chrome://extensions/`](chrome://extensions/).
+3. Enable **Developer mode** (top right).
+4. Click **Load unpacked** and select the extracted folder.
 
-### Firefox(developing...)
+### Firefox (developing...)
 
 ## 🖥️ How to Use
 
-1. Open any JSON page (e.g., [an API response](https://jsonplaceholder.typicode.com/users)).
-2. The page will be rendered in a readable tree structure automatically.
-3. Click [+/-] to expand/collapse nodes, click the copy button to copy values.
+1. Open any JSON page (e.g. an [API response](https://jsonplaceholder.typicode.com/users)).
+2. JSON is automatically rendered as an interactive tree.
+3. Click **[+ / −]** to expand or collapse nodes.
+4. Click values or the copy button to copy content.
+5. Primitive values support direct click-to-copy.
 
 ## 📜 Permissions
 
 - Runs only on JSON pages you open.
-- Does not collect or upload any personal data.
-
-## 🛠️ Development
-
-```bash
-git clone https://github.com/qzda/json-v.git
-cd json-v
-npm install
-npm run dev
-```
+- Does not collect, store, or upload any personal data.
+- Fully local and privacy-friendly.
