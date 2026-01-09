@@ -2,7 +2,7 @@
   "name": "json-v",
   "displayName": "JSON V",
   "description": "A browser extension that makes raw JSON pages more beautiful and interactive. Supports node collapse/expand, copy to clipboard, and improves JSON readability.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "homepage": "https://github.com/qzda/json-v/",
   "scripts": {
