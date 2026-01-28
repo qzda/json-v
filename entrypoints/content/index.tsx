@@ -15,18 +15,21 @@ export default defineContentScript({
         const jsonText = preElement?.innerText;
 
         if (jsonText) {
-          preElement.style.display = "none";
-
-          if (
-            document.querySelector<HTMLDivElement>(".json-formatter-container")
-          ) {
-            document.querySelector<HTMLDivElement>(
-              ".json-formatter-container"
-            )!.style.display = "none";
-          }
-
           try {
             const jsonData = JSON.parse(jsonText);
+
+            preElement.style.display = "none";
+
+            if (
+              document.querySelector<HTMLDivElement>(
+                ".json-formatter-container",
+              )
+            ) {
+              document.querySelector<HTMLDivElement>(
+                ".json-formatter-container",
+              )!.style.display = "none";
+            }
+
             const appElem = document.createElement("div");
             appElem.id = "app";
             uiContainer.appendChild(appElem);
